@@ -1,17 +1,129 @@
+/* General Body & Theme */
 body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: white;
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
 }
-#video, #canvasOutput {
-  width: 480px;
-  height: 360px;
-  border: 2px solid #00ffcc;
-  margin: 10px;
+
+.container {
+    width: 95%;
+    max-width: 800px;
+    padding: 20px;
 }
-#status {
-  margin-top: 10px;
-  font-size: 1.5rem;
-  color: #0f0;
+
+h1 {
+    color: #00ffdd;
+    text-shadow: 0 0 8px rgba(0, 255, 221, 0.7);
+    margin-bottom: 25px;
+}
+
+/* Video & Canvas Styling */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    border: 3px solid #00ffdd;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 221, 0.5);
+    background-color: #000;
+}
+
+video, canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+}
+
+video {
+    z-index: 1;
+    /* Flip the video horizontally for a mirror effect */
+    transform: rotateY(180deg);
+}
+
+canvas {
+    z-index: 2;
+    background-color: transparent;
+}
+
+/* Add padding-bottom to maintain aspect ratio 4:3 */
+.video-container::before {
+    content: '';
+    display: block;
+    padding-bottom: 75%; /* 480 / 640 = 0.75 */
+}
+
+
+/* Controls & Buttons */
+.controls {
+    margin-top: 25px;
+}
+
+#connectBtn {
+    background-color: transparent;
+    border: 2px solid #00ffdd;
+    color: #00ffdd;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(0, 255, 221, 0.7);
+}
+
+#connectBtn:hover, #connectBtn:focus {
+    background-color: #00ffdd;
+    color: #121212;
+    box-shadow: 0 0 20px rgba(0, 255, 221, 0.8);
+}
+
+#connectBtn:disabled {
+    border-color: #555;
+    color: #555;
+    cursor: not-allowed;
+    text-shadow: none;
+}
+#connectBtn:disabled:hover{
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Status Display */
+.status-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.status-container p {
+    margin: 8px 0;
+    font-size: 1.1rem;
+}
+
+.status-container span {
+    color: #00ffdd;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .controls, .status-container {
+        width: 100%;
+    }
 }
