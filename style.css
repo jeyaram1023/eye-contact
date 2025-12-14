@@ -21,6 +21,7 @@ h1 {
     color: #00ffdd;
     text-shadow: 0 0 8px rgba(0, 255, 221, 0.7);
     margin-bottom: 25px;
+    font-size: 2rem;
 }
 
 /* Video & Canvas Styling */
@@ -28,11 +29,12 @@ h1 {
     position: relative;
     width: 100%;
     max-width: 640px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     border: 3px solid #00ffdd;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 255, 221, 0.5);
     background-color: #000;
+    overflow: hidden;
 }
 
 video, canvas {
@@ -42,12 +44,12 @@ video, canvas {
     width: 100%;
     height: 100%;
     border-radius: 7px;
+    display: block;
 }
 
 video {
     z-index: 1;
-    /* Flip the video horizontally for a mirror effect */
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); /* Mirror effect */
 }
 
 canvas {
@@ -55,24 +57,24 @@ canvas {
     background-color: transparent;
 }
 
-/* Add padding-bottom to maintain aspect ratio 4:3 */
+/* Maintain 4:3 aspect ratio */
 .video-container::before {
     content: '';
     display: block;
     padding-bottom: 75%; /* 480 / 640 = 0.75 */
 }
 
-
 /* Controls & Buttons */
 .controls {
-    margin-top: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #connectBtn {
     background-color: transparent;
     border: 2px solid #00ffdd;
     color: #00ffdd;
-    padding: 12px 25px;
+    padding: 12px 30px;
     font-size: 1rem;
     font-weight: bold;
     border-radius: 5px;
@@ -93,7 +95,8 @@ canvas {
     cursor: not-allowed;
     text-shadow: none;
 }
-#connectBtn:disabled:hover{
+
+#connectBtn:disabled:hover {
     background-color: transparent;
     box-shadow: none;
 }
@@ -108,7 +111,7 @@ canvas {
 }
 
 .status-container p {
-    margin: 8px 0;
+    margin: 10px 0;
     font-size: 1.1rem;
 }
 
@@ -122,8 +125,13 @@ canvas {
     h1 {
         font-size: 1.5rem;
     }
-
-    .controls, .status-container {
-        width: 100%;
+    
+    .container {
+        padding: 10px;
+    }
+    
+    #connectBtn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
