@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eye Tracking & Bluetooth Control</title>
+    <title>Eye-Controlled Bluetooth Interface</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="container">
-        <h1>Eye-Controlled Bluetooth Interface</h1>
-
+        <h1>🔷 Eye-Controlled Bluetooth Interface</h1>
+        
         <div class="video-container">
-            <video id="video" width="640" height="480" autoplay muted playsinline></video>
+            <video id="video" playsinline autoplay></video>
             <canvas id="canvasOutput"></canvas>
         </div>
 
@@ -21,13 +20,13 @@
         </div>
 
         <div class="status-container">
-            <p><strong>Eye Status:</strong> <span id="eyeStatus">Initializing...</span></p>
-            <p><strong>Bluetooth:</strong> <span id="btStatus">Disconnected</span></p>
+            <p>Eye Status: <span id="eyeStatus">Initializing...</span></p>
+            <p>Bluetooth: <span id="btStatus">Disconnected</span></p>
         </div>
     </div>
 
-    <script async src="https://docs.opencv.org/4.9.0/opencv.js" onload="onCvReady();"></script>
+    <!-- Load OpenCV.js -->
+    <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
